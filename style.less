@@ -1,0 +1,631 @@
+/*! HTML5 Boilerplate v5.0.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+// ============================================================
+// Constants and Mixins
+// ============================================================
+
+@white: #FFFFFF;
+@black: #333333;
+@red: #E74C3C;
+@green: #2EB85C;
+
+@tiny: 4px;
+@small: 6px;
+@medium: 10px;
+@big: 20px;
+@huge: 30px;
+
+@coverImageHeight: 400px;
+@iconSize: 40px;
+
+@pageMaxWidth: 1280px;
+
+@duration: .3s;
+
+.Transition(@property: all, @duration: @duration) {
+    -webkit-transition: @property @duration;
+    transition: @property @duration;
+}
+
+.Rotate(@value) {
+  -ms-transform: rotate(@value);
+  -webkit-transform: rotate(@value);
+  transform: rotate(@value);
+}
+
+.Arrow(@size) {
+    display: inline-block;
+    content: '';
+    border-color: transparent;
+    border-width: @size;
+    border-style: solid;
+}
+
+.ArrowDown(@size, @color) {
+  .Arrow(@size);
+  border-bottom-width: 0;
+  border-top-color: @color;
+}
+
+.Icon(@size) {
+  display: block;
+  font-family: 'ecoicon';
+  font-weight: normal;
+  // font-size: @big;
+  // width: @iconSize;
+  // height: @iconSize;
+  // line-height: @iconSize;
+  text-align: center;
+}
+
+// ============================================================
+// Fonts
+// ============================================================
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+@font-face {
+  font-family: 'ecoicon';
+  src:url('fonts/ecoicons/ecoicon.eot');
+  src:url('fonts/ecoicons/ecoicon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/ecoicons/ecoicon.woff') format('woff'),
+    url('fonts/ecoicons/ecoicon.ttf') format('truetype'),
+    url('fonts/ecoicons/ecoicon.svg#ecoicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// ============================================================
+// Base styles: opinionated defaults
+// ============================================================
+
+html {
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: 'Lato', sans-serif;
+  color: @black;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+// ============================================================
+// Browser Upgrade Prompt
+// ============================================================
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+// ============================================================
+// General Rules
+// ============================================================
+
+a {
+  text-decoration: none;
+  color: inherit;
+  .Transition;
+  border-bottom: 2px solid @black;
+  padding-bottom: 2px;
+  &:hover {
+    color: @red;
+    border-bottom-color: @red;
+  }
+}
+
+// ============================================================
+// Page Header
+// ============================================================
+
+#page-header {
+  color: @white;
+  background: @red;
+  .top-container {
+    display: flex;
+    display: none;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: @big;
+    svg {
+      margin-right: @big;
+    }
+    .page-title-container {
+      #page-title {
+        margin: 0;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      #page-description {
+        margin: 0;
+      }
+    }
+  }
+  #main-menu {
+    z-index: 1;
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      & > li {
+        margin: @medium;
+        & > a {
+          display: block;
+          text-decoration: none;
+          color: inherit;
+          padding: @tiny 0;
+          border-bottom: 2px solid transparent;
+        }
+        &.current-menu-item > a {
+          border-color: @white;
+        }
+      }
+    }
+    &.sticky {
+      background: @red;
+    }
+  } // #main-menu
+}
+
+// ============================================================
+// Entry
+// ============================================================
+
+.post {
+  border-bottom: 1px solid @black;
+  .cover-image {
+    display: block;
+    height: @coverImageHeight;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .entry-header {
+    .wp-post-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .entry-title {
+      margin: @big 0;
+      padding: 0 @big;
+    }
+  }
+  .entry-content {
+    margin: @big 0;
+    padding: 0 @big;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .entry-footer {
+    margin: @big 0;
+    padding: 0 @big;
+  }
+}
+
+// ============================================================
+// Sections
+// ============================================================
+
+.section-container {
+  max-width: @pageMaxWidth;
+  margin: 0 auto;
+}
+
+#info {
+  // color: @white;
+  // background: @black;
+  // border-bottom: 1px solid @black;
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    & > li {
+      display: flex;
+      align-items: center;
+      // align-self: center;
+      flex-grow: 1;
+      margin: @big;
+      padding: @medium;
+      header {
+        // display: flex;
+        .icon {
+          display: inline-block;
+          color: @white;
+          background: @red;
+          // box-shadow: 0 0 0 2px @black;
+          border-radius: 50%;
+          // font-size: 0;
+          &:before {
+            display: block;
+            font-family: 'ecoicon';
+            font-weight: normal;
+            font-size: @big;
+            width: @iconSize;
+            height: @iconSize;
+            line-height: @iconSize;
+            text-align: center;
+          }
+        } // .icon
+        h3 {
+          margin: 0 0 0 @medium;
+          line-height: @iconSize;
+        } // h3
+      } // header
+      &#otvaracia-doba .icon:before {
+        content: '\e004';
+      }
+      .opening-hours-container {
+        position: relative;
+        margin-left: 1em;
+        .opening-hours {
+          text-align: left;
+          list-style: none;
+          padding: 0;
+          li {
+            display: none;
+            margin-bottom: 2px;
+            &.today {
+              display: block;
+              padding: 2px 0;
+              border-bottom: 2px solid;
+              &.opened {
+                color: @green;
+                border-color: @green;
+                .is-opened {
+                  // &:before {
+                  //   content: '\2713';
+                  //   margin-right: 2px;
+                  // }
+                }
+              }
+              &.closed {
+                color: @red;
+                border-color: @red;
+                // background-color: lighten(@red, 40%);
+              }
+              .is-opened {
+                font-size: 80%;
+              }
+            } // today
+            strong {
+              display: inline-block;
+              width: @huge;
+            }
+          } // li
+        } // .opening-hours
+        .show-more {
+          position: absolute;
+          font-size: 0;
+          padding: @medium;
+          top: 0;
+          right: 0;
+          cursor: pointer;
+          &:after {
+            .Transition;
+            .ArrowDown(@small, fadeout(@black, 50%));
+          }
+          &:hover:after {
+            border-top-color: @black;
+          }
+          &.opened {
+            .Rotate(180deg);
+          }
+        } // .show-more
+      } // .opening-hours-container
+      &#email {
+        header .icon:before {
+          content: '\e00d';
+        }
+        a {
+          margin-left: 1em;
+        }
+      } // #email
+
+      &#telefon {
+        header .icon:before {
+          content: '\e009';
+        }
+        .phone-container {
+          margin-left: 1em;
+          .phone-number-list {
+            padding: 0;
+            list-style: none;
+          }
+        }
+      } // #telefon
+
+      &#adresa {
+        header .icon:before {
+          content: '\e00e';
+        }
+        .address-list {
+          margin-left: 1em;
+          list-style: none;
+          padding: 0;
+          text-align: left;
+          .name {
+            font-weight: 700;
+          }
+          .country {
+            text-transform: uppercase;
+          }
+        }
+      } // #adresa
+    }
+  } // .info-list
+} // #info
+
+#o-nas,
+#kontakt {
+  padding: 0 @big;
+  margin: @big 0;
+}
+
+
+// ============================================================
+// Footer
+// ============================================================
+
+#page-footer {
+  text-align: center;
+  padding: @big;
+}
+
+
+
+
+
+
+
+
+
+
+// ============================================================
+// Helper classes
+// ============================================================
+
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
