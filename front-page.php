@@ -11,7 +11,7 @@
 
   
 
-  get_template_part('page', 'info');
+  get_template_part('page', 'stores');
   get_template_part('page', 'about');
   get_template_part('page', 'contact');
 

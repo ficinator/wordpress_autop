@@ -1,7 +1,7 @@
 <section id="kontakt">
   <div class="section-container">
 
-    <h2>Contact</h2>
+    <h2 class="section-title"><?php _e('Contact') ?></h2>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel tempor ex. Quisque eu dolor dictum, bibendum risus vel, ultricies risus. Nunc venenatis ac massa vitae dictum. Etiam mauris mauris, molestie in velit sed, facilisis semper libero. In ornare ultrices urna commodo condimentum. Vivamus aliquet eleifend nibh a interdum. Cras pharetra, sapien eget aliquet tempus, lorem neque auctor urna, viverra lacinia metus ipsum a felis. Ut varius nisl dolor, id porta purus pulvinar quis. Phasellus tristique, magna eget pharetra lobortis, lectus elit lacinia odio, sit amet pulvinar odio odio et nisl. In hac habitasse platea dictumst. Fusce convallis tortor vel risus molestie lacinia. Phasellus porta sem ex, et fermentum lectus laoreet id. Maecenas faucibus sollicitudin magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.

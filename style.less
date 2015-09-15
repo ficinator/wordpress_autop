@@ -21,10 +21,11 @@
 @big: 20px;
 @huge: 30px;
 
+@pageMaxWidth: 1280px;
+
 @coverImageHeight: 400px;
 @iconSize: 40px;
-
-@pageMaxWidth: 1280px;
+// @mapHeight: 400px;
 
 @duration: .3s;
 
@@ -212,7 +213,7 @@ a {
     }
   }
   #main-menu {
-    z-index: 1;
+    z-index: 2;
     ul {
       display: flex;
       flex-flow: row wrap;
@@ -285,162 +286,210 @@ a {
 .section-container {
   max-width: @pageMaxWidth;
   margin: 0 auto;
+  .section-title {
+    margin: 1em @big;
+  }
+  p {
+    margin: 1em @big;
+  }
 }
 
-#info {
-  // color: @white;
-  // background: @black;
-  // border-bottom: 1px solid @black;
-  .info-list {
+#predajne {
+  .store-list {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    margin: 0;
     & > li {
-      display: flex;
-      align-items: center;
-      // align-self: center;
-      flex-grow: 1;
-      margin: @big;
-      padding: @medium;
-      header {
-        // display: flex;
-        .icon {
-          display: inline-block;
-          color: @white;
-          background: @red;
-          // box-shadow: 0 0 0 2px @black;
-          border-radius: 50%;
-          // font-size: 0;
-          &:before {
-            display: block;
-            font-family: 'ecoicon';
-            font-weight: normal;
-            font-size: @big;
-            width: @iconSize;
-            height: @iconSize;
-            line-height: @iconSize;
-            text-align: center;
-          }
-        } // .icon
-        h3 {
-          margin: 0 0 0 @medium;
-          line-height: @iconSize;
-        } // h3
-      } // header
-      &#otvaracia-doba .icon:before {
-        content: '\e004';
+      &.ui-tabs-active a {
+        // color: @red;
+        font-weight: 700;
       }
-      .opening-hours-container {
-        position: relative;
-        margin-left: 1em;
-        .opening-hours {
-          text-align: left;
-          list-style: none;
-          padding: 0;
-          li {
-            display: none;
-            margin-bottom: 2px;
-            &.today {
-              display: block;
-              padding: 2px 0;
-              border-bottom: 2px solid;
-              &.opened {
-                color: @green;
-                border-color: @green;
-                .is-opened {
-                  // &:before {
-                  //   content: '\2713';
-                  //   margin-right: 2px;
-                  // }
-                }
-              }
-              &.closed {
-                color: @red;
-                border-color: @red;
-                // background-color: lighten(@red, 40%);
-              }
-              .is-opened {
-                font-size: 80%;
-              }
-            } // today
-            strong {
-              display: inline-block;
-              width: @huge;
-            }
-          } // li
-        } // .opening-hours
-        .show-more {
-          position: absolute;
-          font-size: 0;
-          padding: @medium;
-          top: 0;
-          right: 0;
-          cursor: pointer;
-          &:after {
-            .Transition;
-            .ArrowDown(@small, fadeout(@black, 50%));
-          }
-          &:hover:after {
-            border-top-color: @black;
-          }
-          &.opened {
-            .Rotate(180deg);
-          }
-        } // .show-more
-      } // .opening-hours-container
-      &#email {
-        header .icon:before {
-          content: '\e00d';
-        }
-        a {
-          margin-left: 1em;
-        }
-      } // #email
-
-      &#telefon {
-        header .icon:before {
-          content: '\e009';
-        }
-        .phone-container {
-          margin-left: 1em;
-          .phone-number-list {
-            padding: 0;
-            list-style: none;
-          }
-        }
-      } // #telefon
-
-      &#adresa {
-        header .icon:before {
-          content: '\e00e';
-        }
-        .address-list {
-          margin-left: 1em;
-          list-style: none;
-          padding: 0;
-          text-align: left;
-          .name {
-            font-weight: 700;
-          }
-          .country {
-            text-transform: uppercase;
-          }
-        }
-      } // #adresa
+      a {
+        display: block;
+        padding: @medium @big;
+        border: none;
+      }
     }
-  } // .info-list
-} // #info
+  } // .store-list
+} // #predajne
 
-#o-nas,
-#kontakt {
-  padding: 0 @big;
-  margin: @big 0;
-}
+.info-container {
+  display: flex;
+  flex-flow: row wrap;
+  .info-list-container {
+    .info-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      // align-items: center;
+    } // .info-list
+  } // .info-list-container
+} // .info-container
 
+aside.info {
+  padding: @big @huge;
+  // border-bottom: 1px solid @black;
+  header {
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: center;
+    align-items: center;
+    margin-bottom: @medium;
+    .icon {
+      // display: inline-block;
+      color: @white;
+      background: @red;
+      // box-shadow: 0 0 0 2px @black;
+      border-radius: 50%;
+      // font-size: 0;
+      margin-right: @medium;
+      &:before {
+        display: block;
+        font-family: 'ecoicon';
+        font-weight: normal;
+        font-size: @big;
+        width: @iconSize;
+        height: @iconSize;
+        line-height: @iconSize;
+        text-align: center;
+      }
+    } // .icon
+    h3 {
+      margin: 0;
+      line-height: @iconSize;
+      font-weight: 700;
+    } // h3
+  } // header
+
+  &#otvaracia-doba {
+    .icon:before {
+      content: '\e004';
+    }
+    .opening-hours-container {
+      .opening-hours {
+        // text-align: left;
+        list-style: none;
+        padding: 0;
+        li {
+          // display: none;
+          margin-bottom: 2px;
+          &.today {
+            display: block;
+            padding: 2px 0;
+            border-bottom: 2px solid;
+            &.opened {
+              color: @green;
+              border-color: @green;
+              .is-opened {
+                // &:before {
+                //   content: '\2713';
+                //   margin-right: 2px;
+                // }
+              }
+            }
+            &.closed {
+              color: @red;
+              border-color: @red;
+              // background-color: lighten(@red, 40%);
+            }
+            .is-opened {
+              font-size: 80%;
+            }
+          } // today
+          strong {
+            display: inline-block;
+            width: @huge;
+          }
+        } // li
+      } // .opening-hours
+    } // .opening-hours-container
+  } // #otvaracia-doba
+
+    &#email {
+    header .icon:before {
+      content: '\e00d';
+    }
+  } // #email
+
+  &#telefon {
+    header .icon:before {
+      content: '\e009';
+    }
+    .phone-container {
+      .phone-number-list {
+        padding: 0;
+        list-style: none;
+      }
+    }
+  } // #telefon
+
+} // aside.info
+
+.map-container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  #adresa {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    // margin-left: -126px;
+    background: @white;
+    padding: @medium @big @medium @medium;
+    margin: @medium;
+    // border-top-left-radius: 32px;
+    header {
+      .icon {
+        display: inline-block;
+        color: @white;
+        background: @red;
+        // box-shadow: 0 0 0 2px @black;
+        border-radius: 50%;
+        // font-size: 0;
+        &:before {
+          content: '\e00e';
+          display: block;
+          font-family: 'ecoicon';
+          font-weight: normal;
+          font-size: @big;
+          width: @iconSize;
+          height: @iconSize;
+          line-height: @iconSize;
+          text-align: center;
+        }
+      } // .icon
+    } // header
+    .address-list {
+      padding: 0;
+      margin: 0 0 0 1em;
+      list-style: none;
+      text-align: left;
+      // text-shadow: 0 0 0 2px @white;
+      .name {
+        font-weight: 700;
+      }
+      .country {
+        text-transform: uppercase;
+      }
+    }
+  } // #adresa
+  .map {
+    width: 100%;
+    // height: 100%;
+    // height: @mapHeight;
+  } // #map
+} // .map-container
 
 // ============================================================
 // Footer
