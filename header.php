@@ -17,25 +17,29 @@
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header id="page-header">
-      <div class="top-container">
-        <?php include get_template_directory() . '/images/autop_logo_white.svg'; ?>
-        <div class="page-title-container">
-          <h1 id="page-title">
-            <?php bloginfo('title'); ?>
-          </h1>
-          <p id="page-description">
-            <?php bloginfo('description'); ?>
-          </p>
-        </div> <!-- .page-title-container -->
-      </div> <!-- .top-container -->
-      <?php
-        wp_nav_menu(array(
-          'container' => 'nav',
-          'container_id' => 'main-menu'
-        ));
-      ?>
-    </header>
+    <div class="main-header-container">
+      <header id="main-header">
+        <div class="main-logo-container">
+          <div class="main-logo">
+            <?php include get_template_directory() . '/images/autop_logo_white.svg'; ?>
+          </div> <!-- .main-logo -->
+          <div class="main-title-container">
+            <h1 id="main-title">
+              <?php bloginfo('title'); ?>
+            </h1>
+            <p id="main-description">
+              <?php bloginfo('description'); ?>
+            </p>
+          </div> <!-- .main-title-container -->
+        </div> <!-- .main-logo-container -->
+        <?php
+          wp_nav_menu(array(
+            'container' => 'nav',
+            'container_id' => 'main-menu'
+          ));
+        ?>
+      </header> <!-- #main-header -->
+    </div> <!-- .main-header-container -->
 
     <main id="main">
 

@@ -35,6 +35,20 @@ function autop_scripts() {
   wp_enqueue_script('functions-script', get_template_directory_uri() . '/js/functions.js', array('jquery'), false, true);
 }
 
+function autop_widgets_init() {
+  register_sidebar(array(
+    'name'          => __('Primary Sidebar'),
+    'id'            => 'sidebar',
+    'description'   => __('Main sidebar that appears on the right.'),
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h3 class="widget-title">',
+    'after_title'   => '</h3>',
+  ));
+}
+
+add_action('widgets_init', 'autop_widgets_init');
+
 add_action('wp_enqueue_scripts', 'autop_scripts');
 
 function add_defer_attribute($tag, $handle) {

@@ -1,5 +1,5 @@
-<section id="kontakt">
-  <div class="section-container">
+<div class="section-container">
+  <section id="kontakt">
 
     <h2 class="section-title"><?php _e('Contact') ?></h2>
 
@@ -23,5 +23,5 @@
       In et mauris nec velit ultricies porta. Pellentesque fermentum ex in ultrices tristique. Morbi auctor libero ut egestas fringilla. Cras at vehicula dui. Cras lacus turpis, consequat a nisl nec, venenatis tempor ex. Morbi eleifend a ante at vehicula. Ut tincidunt nisl ut tellus consequat bibendum.
     </p>
 
-  </div>
-</section>
+  </section>
+</div>

@@ -1,6 +1,6 @@
 jQuery(function($) {
 
-  // var pageHeader = $('#page-header');
+  var mainHeader = $('.main-header-container');
   var mainMenu = $('#main-menu');
   // var menuItems = mainMenu.find('a');
   // var sections = menuItems.map(function() {
@@ -8,7 +8,7 @@ jQuery(function($) {
   //   if (id) { return $('#' + id); }
   // });
 
-  mainMenu.hcSticky({ stickTo: document });
+  mainHeader.hcSticky({ stickTo: document });
 
   // $(window).scroll(function() {
   //   var fromTop = $(this).scrollTop();

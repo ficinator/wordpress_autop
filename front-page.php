@@ -1,20 +1,18 @@
 <?php
-
   get_header();
-
-  // if (have_posts()) {
-  //   while (have_posts()) {
-  //     the_post();
-  //     get_template_part('content', get_post_format());
-  //   }
-  // }
-
-  
-
   get_template_part('page', 'stores');
-  get_template_part('page', 'about');
-  get_template_part('page', 'contact');
-
-  get_footer();
-
 ?>
+
+<div id="page">
+  <div id="primary">
+    <?php
+      get_template_part('page', 'about');
+      get_template_part('page', 'contact');
+    ?>
+  </div> <!-- #primary -->
+
+  <?php get_sidebar() ?>
+
+</div> <!-- #page -->
+
+<?php get_footer() ?>

@@ -6,9 +6,9 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 @font-face {
-  font-family: 'ecoicon';
-  src: url('fonts/ecoicons/ecoicon.eot');
-  src: url('fonts/ecoicons/ecoicon.eot?#iefix') format('embedded-opentype'), url('fonts/ecoicons/ecoicon.woff') format('woff'), url('fonts/ecoicons/ecoicon.ttf') format('truetype'), url('fonts/ecoicons/ecoicon.svg#ecoicon') format('svg');
+  font-family: 'Font Awesome';
+  src: url('fonts/font-awesome/fonts/fontawesome-webfont.eot');
+  src: url('fonts/font-awesome/fonts/fontawesome-webfont.woff') format('woff'), url('fonts/font-awesome/fonts/fontawesome-webfont.woff2') format('woff2'), url('fonts/font-awesome/fonts/fontawesome-webfont.ttf') format('truetype'), url('fonts/font-awesome/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -77,6 +77,15 @@ textarea {
   color: #000;
   padding: 0.2em 0;
 }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -89,33 +98,56 @@ a:hover {
   color: #e74c3c;
   border-bottom-color: #e74c3c;
 }
-#page-header {
-  color: #ffffff;
-  background: #e74c3c;
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: white;
 }
-#page-header .top-container {
+#page {
   display: flex;
-  display: none;
+  flex-flow: row nowrap;
+}
+#primary {
+  flex: 5 1;
+}
+.main-header-container {
+  background: #e74c3c;
+  z-index: 2;
+}
+#main-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+.main-logo-container {
+  display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
-#page-header .top-container svg {
-  margin-right: 20px;
+.main-logo-container .main-logo {
+  margin-right: 10px;
 }
-#page-header .top-container .page-title-container #page-title {
+.main-logo-container .main-logo svg {
+  width: auto;
+  height: 32px;
+}
+.main-logo-container .main-title-container {
+  display: none;
+}
+.main-logo-container .main-title-container #main-title {
   margin: 0;
   text-transform: uppercase;
   line-height: 1;
 }
-#page-header .top-container .page-title-container #page-description {
+.main-logo-container .main-title-container #main-description {
   margin: 0;
 }
-#page-header #main-menu {
-  z-index: 2;
-}
-#page-header #main-menu ul {
+#main-menu ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -124,20 +156,20 @@ a:hover {
   margin: 0;
   padding: 0;
 }
-#page-header #main-menu ul > li {
+#main-menu ul > li {
   margin: 10px;
 }
-#page-header #main-menu ul > li > a {
+#main-menu ul > li > a {
   display: block;
   text-decoration: none;
   color: inherit;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
 }
-#page-header #main-menu ul > li.current-menu-item > a {
+#main-menu ul > li.current-menu-item > a {
   border-color: #ffffff;
 }
-#page-header #main-menu.sticky {
+#main-menu.sticky {
   background: #e74c3c;
 }
 .post {
@@ -170,42 +202,58 @@ a:hover {
   margin: 20px 0;
   padding: 0 20px;
 }
-.section-container {
+.section-container section {
   max-width: 1280px;
   margin: 0 auto;
 }
-.section-container .section-title {
-  margin: 1em 20px;
+.section-container section .section-title {
+  margin: 1em 30px;
 }
-.section-container p {
-  margin: 1em 20px;
+.section-container section p {
+  margin: 1em 30px;
 }
-#predajne .store-list {
+#predajne .section-title-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#predajne .section-title-container .store-list {
   list-style: none;
   display: flex;
   flex-flow: row wrap;
   padding: 0;
   margin: 0;
 }
-#predajne .store-list > li.ui-tabs-active a {
+#predajne .section-title-container .store-list > li.ui-state-focus a {
+  outline: none;
+}
+#predajne .section-title-container .store-list > li.ui-tabs-active a h3 {
   font-weight: 700;
 }
-#predajne .store-list > li a {
+#predajne .section-title-container .store-list > li a {
   display: block;
   padding: 10px 20px;
   border: none;
+}
+#predajne .section-title-container .store-list > li a h3 {
+  font-weight: 400;
 }
 .info-container {
   display: flex;
   flex-flow: row wrap;
 }
-.info-container .info-list-container .info-list {
+.info-list-container {
+  flex: 2 1;
+  padding-bottom: 10px;
+}
+.info-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  align-items: left;
 }
 aside.info {
   padding: 20px 30px;
@@ -223,8 +271,9 @@ aside.info header .icon {
   margin-right: 10px;
 }
 aside.info header .icon:before {
+  content: '\f129';
   display: block;
-  font-family: 'ecoicon';
+  font-family: 'Font Awesome';
   font-weight: normal;
   font-size: 20px;
   width: 40px;
@@ -237,57 +286,49 @@ aside.info header h3 {
   line-height: 40px;
   font-weight: 700;
 }
-aside.info#otvaracia-doba .icon:before {
-  content: '\e004';
-}
-aside.info#otvaracia-doba .opening-hours-container .opening-hours {
+aside.info .opening-hours {
+  display: inline-block;
   list-style: none;
   padding: 0;
 }
-aside.info#otvaracia-doba .opening-hours-container .opening-hours li {
+aside.info .opening-hours li {
   margin-bottom: 2px;
 }
-aside.info#otvaracia-doba .opening-hours-container .opening-hours li.today {
+aside.info .opening-hours li.today {
   display: block;
   padding: 2px 0;
   border-bottom: 2px solid;
 }
-aside.info#otvaracia-doba .opening-hours-container .opening-hours li.today.opened {
+aside.info .opening-hours li.today.opened {
   color: #2eb85c;
   border-color: #2eb85c;
 }
-aside.info#otvaracia-doba .opening-hours-container .opening-hours li.today.closed {
+aside.info .opening-hours li.today.closed {
   color: #e74c3c;
   border-color: #e74c3c;
 }
-aside.info#otvaracia-doba .opening-hours-container .opening-hours li.today .is-opened {
+aside.info .opening-hours li.today .is-opened {
   font-size: 80%;
 }
-aside.info#otvaracia-doba .opening-hours-container .opening-hours li strong {
+aside.info .opening-hours li strong {
   display: inline-block;
   width: 30px;
 }
-aside.info#email header .icon:before {
-  content: '\e00d';
-}
-aside.info#telefon header .icon:before {
-  content: '\e009';
-}
-aside.info#telefon .phone-container .phone-number-list {
+aside.info .phone-container .phone-number-list {
   padding: 0;
   list-style: none;
 }
 .map-container {
   position: relative;
-  flex-grow: 1;
+  flex: 5 1;
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;
 }
-.map-container #adresa {
+#adresa {
   position: absolute;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   z-index: 1;
   bottom: 0;
@@ -296,16 +337,16 @@ aside.info#telefon .phone-container .phone-number-list {
   padding: 10px 20px 10px 10px;
   margin: 10px;
 }
-.map-container #adresa header .icon {
+#adresa header .icon {
   display: inline-block;
   color: #ffffff;
   background: #e74c3c;
   border-radius: 50%;
 }
-.map-container #adresa header .icon:before {
-  content: '\e00e';
+#adresa header .icon:before {
+  content: '\f129';
   display: block;
-  font-family: 'ecoicon';
+  font-family: 'Font Awesome';
   font-weight: normal;
   font-size: 20px;
   width: 40px;
@@ -313,22 +354,30 @@ aside.info#telefon .phone-container .phone-number-list {
   line-height: 40px;
   text-align: center;
 }
-.map-container #adresa .address-list {
+#adresa .address-list {
   padding: 0;
   margin: 0 0 0 1em;
   list-style: none;
   text-align: left;
 }
-.map-container #adresa .address-list .name {
+#adresa .address-list .name {
   font-weight: 700;
 }
-.map-container #adresa .address-list .country {
+#adresa .address-list .country {
   text-transform: uppercase;
 }
-.map-container .map {
+.map {
   width: 100%;
 }
-#page-footer {
+#sidebar {
+  flex: 2 1;
+  background: #f2f2f2;
+}
+aside.widget {
+  margin: 30px 0;
+  padding: 0 30px;
+}
+#main-footer {
   text-align: center;
   padding: 20px;
 }

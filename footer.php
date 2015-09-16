@@ -12,7 +12,7 @@
     ?>
     </main>
   
-  <footer id="page-footer">
+  <footer id="main-footer">
     Autop &copy; 2015
   </footer>
 
