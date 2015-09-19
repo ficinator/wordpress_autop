@@ -19,24 +19,30 @@
     <![endif]-->
     <div class="main-header-container">
       <header id="main-header">
-        <div class="main-logo-container">
-          <div class="main-logo">
-            <?php include get_template_directory() . '/images/autop_logo_white.svg'; ?>
-          </div> <!-- .main-logo -->
-          <div class="main-title-container">
-            <h1 id="main-title">
-              <?php bloginfo('title'); ?>
-            </h1>
-            <p id="main-description">
-              <?php bloginfo('description'); ?>
-            </p>
-          </div> <!-- .main-title-container -->
-        </div> <!-- .main-logo-container -->
+        <a href="<?php echo esc_url(home_url('/')); ?>">
+          <div class="main-logo-container">
+            <div class="main-logo">
+              <?php include get_template_directory() . '/images/autop_logo_white.svg'; ?>
+            </div> <!-- .main-logo -->
+            <div class="main-title-container">
+              <h1 id="main-title">
+                <?php bloginfo('title'); ?>
+              </h1>
+              <p id="main-description">
+                <?php bloginfo('description'); ?>
+              </p>
+            </div> <!-- .main-title-container -->
+          </div> <!-- .main-logo-container -->
+        </a>
+
         <?php
+
           wp_nav_menu(array(
             'container' => 'nav',
             'container_id' => 'main-menu'
           ));
+
+          get_template_part('aside', 'social');
         ?>
       </header> <!-- #main-header -->
     </div> <!-- .main-header-container -->

@@ -11,10 +11,6 @@
       </script>*/
     ?>
     </main>
-  
-  <footer id="main-footer">
-    Autop &copy; 2015
-  </footer>
 
   <?php wp_footer(); ?>
 

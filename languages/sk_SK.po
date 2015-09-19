@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Autop 1.0\n"
-"POT-Creation-Date: 2015-09-14 03:24+0100\n"
-"PO-Revision-Date: 2015-09-14 03:28+0100\n"
+"POT-Creation-Date: 2015-09-18 10:31+0100\n"
+"PO-Revision-Date: 2015-09-18 10:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -16,39 +16,59 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../aside-email.php:4
+msgid "Email"
+msgstr "Email"
+
+#: ../aside-hours.php:4
+msgid "Opening Hours"
+msgstr "Otváracia doba"
+
+#: ../aside-hours.php:23
+msgid "Closed"
+msgstr "Zatvorené"
+
+#: ../aside-hours.php:28
+msgid "Right now we're "
+msgstr "Práve teraz máme "
+
+#: ../aside-phone.php:4
+msgid "Phone"
+msgstr "Telefón"
+
 #: ../functions.php:12
 msgid "Top primary menu"
 msgstr "Hlavné menu"
 
-#: ../page-info.php:8
-msgid "Opening Hours"
-msgstr "Otváracia doba"
+#: ../functions.php:41
+msgid "Primary Sidebar"
+msgstr "Primárny stĺpec"
 
-#: ../page-info.php:25
-msgid "Closed"
-msgstr "Zatvorené"
+#: ../functions.php:43
+msgid "Main sidebar that appears on the right."
+msgstr "Hlavný stĺpec zobrazený vpravo"
 
-#: ../page-info.php:27
-msgid "Right now we're "
-msgstr "Práve teraz máme "
-
-#: ../page-info.php:38
-msgid "Email"
-msgstr "Email"
-
-#: ../page-info.php:48
-msgid "Phone"
-msgstr "Telefón"
-
-#: ../page-info.php:62
+#: ../map.php:6
 msgid "Address"
 msgstr "Adresa"
 
-msgid "opened"
-msgstr "otvorené"
+#: ../page-about.php:4
+msgid "About us"
+msgstr "O Nás"
 
-msgid "closed"
-msgstr "zatvorené"
+#: ../page-contact.php:4
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../page-stores.php:10
+msgid "Stores"
+msgstr "Predajne"
+
+#~ msgid "opened"
+#~ msgstr "otvorené"
+
+#~ msgid "closed"
+#~ msgstr "zatvorené"
 
 #~ msgid "Right now we're opened"
 #~ msgstr "Práve teraz máme otvorené"

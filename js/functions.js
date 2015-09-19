@@ -2,13 +2,33 @@ jQuery(function($) {
 
   var mainHeader = $('.main-header-container');
   var mainMenu = $('#main-menu');
+  var slider = $('#slider');
   // var menuItems = mainMenu.find('a');
   // var sections = menuItems.map(function() {
   //   var id = $(this).attr('href').split('#')[1];
+
   //   if (id) { return $('#' + id); }
   // });
 
-  mainHeader.hcSticky({ stickTo: document });
+  slider.slick({
+    arrows: false,
+    centerMode: false,
+    variableWidth: false,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          centerMode: true,
+          variableWidth: true
+        }
+      }
+    ]
+  });
+
+  // $(window).resize(function() {
+  //   if ($(window).width() >= 1280)
+  //     slider.slick('slickSetOption', 'centerMode', true, true);
+  // })
 
   // $(window).scroll(function() {
   //   var fromTop = $(this).scrollTop();
@@ -21,11 +41,13 @@ jQuery(function($) {
   //   var id =
   // });
 
-  $('#store-tabs').tabs().find('.store-list .store').click(function () {
+  $('#store-tabs').tabs({
+    show: { effect: 'fade', duration: 500 },
+    hide: { effect: 'fade', duration: 100 }
+  }).find('.store-title').click(function () {
     id = $(this).children('a').attr('href');
-    map = window.maps[id.replace(/[^-]+-/, '')];
-    google.maps.event.trigger(map, 'resize');
-    map.setCenter(map.origin);
+    marker = window.markers[id.replace(/[^-]+-/, '')];
+    window.map.panTo(marker);
   });
 
   // var openingHours = $('#otvaracia-doba');
@@ -35,34 +57,36 @@ jQuery(function($) {
   //   $(this).toggleClass('opened');
   // });
 
+  $('.mc4wp-alert').click(function() {
+    $(this).fadeOut();
+  });
+
+  $('.gallery').slick({
+    arrows: false,
+    slidesToShow: 4,
+    variableWidth: true,
+    infinite: false
+  });
+
+  mainHeader.hcSticky();
+  $('#sidebar').hcSticky({ top: mainHeader.height()});
+
 });
 
 function initMap() {
-  var maps = {
-    'liptovsky-mikulas': {
-      center: { lat: 49.07998, lng: 19.621558 },
-       zoom: 15},
-    'liptovsky-hradok': {
-      center: { lat: 49.038086, lng: 19.717175 },
-      zoom: 15}};
+  markers = {
+    'liptovsky-mikulas': { lat: 49.07998, lng: 19.621558 },
+    'liptovsky-hradok': { lat: 49.038086, lng: 19.717175 }};
 
-  if (!window.maps)
-    window.maps = {};
-  for (var slug in maps) {
-    if (!window.maps[slug]) {
-      var elem = document.getElementById('map-' + slug);
-      if (elem) {
-        map = new google.maps.Map(elem, maps[slug]);
-        new google.maps.Marker({
-          position: map.getCenter(),
-          map: map});
-        window.maps[slug] = map;
-        window.maps[slug].origin = maps[slug].center;
-      }
-    }
+  elem = document.getElementById('map');
+  map = new google.maps.Map(elem, {
+    center: markers['liptovsky-mikulas'],
+    zoom: 13 });
+  for (slug in markers) {
+    marker = new google.maps.Marker({
+      position: markers[slug],
+      map: map});
   }
+  window.markers = markers;
+  window.map = map;
 }
-
-// google.maps.event.addDomListener(window, 'load', initMap);
-
-
