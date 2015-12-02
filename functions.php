@@ -35,8 +35,8 @@ function autop_scripts() {
 
   // wp_enqueue_script('enquire-script', get_template_directory_uri() . '/js/enquire.min.js', false, false, true);
   // wp_enqueue_script('liptovzije-script', get_template_directory_uri() . '/js/functions.js', array('jquery'), false, true);
-  wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDmg1Z2SiD6LGw5C4nsnLa3SrvRrCOuclE&callback=initMap', false, false, true);
-  wp_enqueue_script('slick', '//cdn.jsdelivr.net/jquery.slick/1.5.6/slick.min.js', array('jquery'), false, true);
+  // wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDmg1Z2SiD6LGw5C4nsnLa3SrvRrCOuclE&callback=initMap', false, false, true);
+  // wp_enqueue_script('slick', '//cdn.jsdelivr.net/jquery.slick/1.5.6/slick.min.js', array('jquery'), false, true);
   wp_enqueue_script('functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), false, true);
 }
 

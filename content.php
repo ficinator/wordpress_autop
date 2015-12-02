@@ -5,9 +5,7 @@
         the_cover_image();
       }
     ?>
-    <h2 class="entry-title">
-      <?php the_title(); ?>
-    </h2>
+    <h1 class="entry-title"><?php the_title() ?></h1>
   </header>
   <section class="entry-content">
     <?php the_content(); ?>

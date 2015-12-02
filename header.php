@@ -17,35 +17,38 @@
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="main-header-container">
-      <header id="main-header">
-        <a href="<?php echo esc_url(home_url('/')); ?>">
-          <div class="main-logo-container">
-            <div class="main-logo">
-              <?php include get_template_directory() . '/images/autop_logo_white.svg'; ?>
-            </div> <!-- .main-logo -->
-            <div class="main-title-container">
-              <h1 id="main-title">
-                <?php bloginfo('title'); ?>
-              </h1>
-              <p id="main-description">
-                <?php bloginfo('description'); ?>
-              </p>
-            </div> <!-- .main-title-container -->
-          </div> <!-- .main-logo-container -->
-        </a>
+    <header id="main-header">
 
-        <?php
+      <div class="drawer-container">
+        <button id="drawer-toggle">
+          <span><?php _e('Menu') ?></span>
+        </button>
+        <div id="drawer">
+          <?php
+            wp_nav_menu(array(
+              'container' => 'nav',
+              'container_id' => 'main-menu'
+            ));
+          ?>
+        </div>  <!-- #drawer -->
+        <div class="drawer-overlay"></div>
+      </div>  <!-- .drawer-container -->
 
-          wp_nav_menu(array(
-            'container' => 'nav',
-            'container_id' => 'main-menu'
-          ));
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="main-logo-container">
+        <div class="main-logo">
+          <?php include get_template_directory() . '/images/autop_logo_white.svg'; ?>
+        </div> <!-- .autop-logo -->
+        <h1 class="main-title">
+          <?php bloginfo('title'); ?>
+        </h1>
+      </a>
 
-          get_template_part('aside', 'social');
-        ?>
-      </header> <!-- #main-header -->
-    </div> <!-- .main-header-container -->
+      <div class="search-form-container">
+        <button id="search-form-toggle"><?php _e('Search') ?></button>
+        <?php get_search_form() ?>
+      </div>  <!-- .search-form-container -->
+
+    </header> <!-- #main-header -->
 
     <main id="main">
 
